@@ -8,8 +8,7 @@ async function handleIncrementRequest(req, meta) {
   const { a, b } = req.body;
 
   if (a && b) {
-    await incrementAffinity(a,b);
-    return 200;
+    return await incrementAffinity(a,b);
   }
 }
 
