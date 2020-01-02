@@ -6,21 +6,21 @@ import { HttpServerContract } from './contracts';
 // Because request handler functions depend on an affinityStorage device,
 // we use closure to create them dynamically instead of hardcoding.
 // We don't want to hardcode our database details into server details.
-function createIncrementHandler(affinityStorage) {
+function createIncrementHandler(storage) {
   return async function handleIncrementRequest(req, meta) {
     const { a, b } = req.body;
   
     if (a && b) {
-      return await affinityStorage.increment(a,b);
+      return await storage.incrementAffinity(a,b);
     }
   }
 }
-function createRankingHandler(affinityStorage) {
+function createRankingHandler(storage) {
   return async function handleAffinityRankingRequest(req, meta) {
     const { slug } = req.params;
 
     if (slug) {
-      return await affinityStorage.getRanking(slug);
+      return await storage.getAffinityRanking(slug);
     }
   }
 }
