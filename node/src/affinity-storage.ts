@@ -1,7 +1,7 @@
 
 const redis = require("redis")
 const { promisify } = require('util');
-import { AffinityStorage } from './contracts';
+import { AffinityStorageContract } from './contracts';
 
 // Creating a redis client, and async versions of helper functions
 const client = redis.createClient(process.env.REDIS_HOST);
@@ -20,7 +20,7 @@ async function getRanking(a:string): Promise<string[]> {
 }
 
 // Exporting this module's functions as a fulfillment of a contract
-export const RedisAffinityStorage: AffinityStorage = {
+export const AffinityStorage: AffinityStorageContract = {
   increment,
   getRanking,
 }
