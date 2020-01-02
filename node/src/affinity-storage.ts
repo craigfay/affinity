@@ -11,8 +11,7 @@ const zrevrange = promisify(client.zrevrange).bind(client);
 
 // Increasing the level of association (affinity) between two items
 async function incrementAffinity(a:string, b:string): Promise<number> {
-  await zincrby(a, 1, b);
-  return await zincrby(b, 1, a);
+  return await zincrby(a, 1, b);
 }
 
 // Returning an ordering of associated items for a given item
