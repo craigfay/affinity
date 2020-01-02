@@ -1,5 +1,5 @@
 // Responsible for retrieving and persisting affinity data
-export interface AffinityRepository {
-  incrementAffinity: (a:string, b:string) => Promise<number>;
-  getAffinityRanking: (a:string) => Promise<string[]>;
+export interface AffinityStorage {
+  increment: (a:string, b:string) => Promise<number>;
+  getRanking: (a:string) => Promise<string[]>;
 }
